@@ -1,0 +1,813 @@
+/* LAYOUT GENERAL - mobile first */
+.soc-app {
+    min-height: 100vh;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 70px;
+}
+
+/* ===== HEADER ===== */
+.soc-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 58px;
+    padding: 0 18px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.soc-header-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.2px;
+}
+
+.soc-header-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.soc-header-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #1e40af;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.soc-header-nombre {
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.soc-header-logout {
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.soc-header-logout:hover {
+    background: rgba(239,68,68,0.15);
+    border-color: rgba(239,68,68,0.40);
+    color: #fca5a5;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.soc-main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* ===== SECCIÓN MIS PISCINAS ===== */
+.soc-piscinas { padding: 20px 16px; }
+
+.soc-section-title { margin-bottom: 16px; }
+
+.soc-section-title h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0 0 3px;
+}
+
+.soc-section-title p {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin: 0;
+}
+
+.soc-piscinas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.soc-piscina-card {
+    background: var(--surface-0);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform 250ms cubic-bezier(0.34,1.56,0.64,1),
+                box-shadow 250ms cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.soc-piscina-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.soc-piscina-card:active { transform: translateY(0); }
+
+.soc-piscina-img {
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 12px 14px;
+}
+
+.soc-piscina-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, transparent 60%);
+}
+
+.soc-piscina-img h3 {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.soc-piscina-body {
+    padding: 10px 14px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.soc-piscina-urb {
+    font-size: 13px;
+    color: var(--gray-500);
+    font-weight: 500;
+}
+
+.soc-piscina-horario {
+    font-size: 13px;
+    color: var(--blue-500);
+    font-weight: 600;
+}
+
+/* ===== ESTADOS ===== */
+.soc-empty {
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 15px;
+}
+
+.soc-error {
+    margin: 12px 0;
+    padding: 13px 16px;
+    border-radius: var(--radius-md);
+    background: var(--red-100);
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    font-size: 14px;
+}
+
+/* ===== BARRA DE NAVEGACIÓN INFERIOR ===== */
+.soc-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    height: 64px;
+    background: var(--surface-0);
+    border-top: 1px solid var(--gray-200);
+    box-shadow: 0 -4px 16px rgba(15,23,42,0.06);
+    display: flex;
+}
+
+.soc-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: none;
+    background: transparent;
+    color: var(--gray-400);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 8px 0;
+}
+
+.soc-nav-btn.active {
+    color: var(--blue-500);
+}
+
+.soc-nav-btn.active svg {
+    filter: drop-shadow(0 2px 4px rgba(59,130,246,0.25));
+}
+
+.soc-nav-btn:hover { color: var(--blue-500); background: var(--gray-50); }
+
+/* ===== MÓVIL: header compacto ===== */
+@media (max-width: 640px) {
+    .soc-header {
+        padding: 0 var(--space-4);
+        height: 52px;
+    }
+    .soc-header-user { gap: var(--space-2); }
+    .soc-header-nombre { display: none; }
+    .soc-header-logout {
+        min-height: 36px;
+        padding: 0 var(--space-3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ===== TABLET+ ===== */
+@media (min-width: 768px) {
+    .soc-piscinas-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .soc-piscinas { padding: 24px 28px; }
+}
+
+@media (min-width: 1100px) {
+    .soc-piscinas-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== MI ÁREA ===== */
+
+.area-wrapper {
+    padding: 20px 16px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Selector de temporada */
+.temporada-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 16px 0;
+}
+
+.temporada-label {
+    text-align: center;
+    min-width: 200px;
+}
+
+.temporada-titulo {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.temporada-sub {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.temporada-selector button {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    background: white;
+    font-size: 18px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 150ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.temporada-selector button:hover:not(:disabled) {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    color: #1d4ed8;
+}
+
+.temporada-selector button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Cards de estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: 0 1px 4px rgba(15,23,42,0.06);
+}
+
+.stat-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-card-valor {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1;
+}
+
+.stat-card-sub {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.stat-card-progreso {
+    margin-top: 8px;
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.stat-card-progreso-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    border-radius: 3px;
+    transition: width 600ms ease;
+}
+
+/* Gráfico de barras por mes */
+.barras-temporada {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 4px rgba(15,23,42,0.06);
+}
+
+.barras-titulo {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+.barras-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    height: 120px;
+    align-items: end;
+}
+
+.barra-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+}
+
+.barra-valor {
+    font-size: 10px;
+    font-weight: 600;
+    color: #3b82f6;
+    min-height: 16px;
+    text-align: center;
+}
+
+.barra-wrap {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.barra-fill {
+    width: 100%;
+    background: #bfdbfe;
+    border-radius: 4px 4px 0 0;
+    transition: height 500ms ease;
+    min-height: 0;
+}
+
+.barra-fill.actual {
+    background: linear-gradient(180deg, #3b82f6, #2563eb);
+}
+
+.barra-fill.vacia {
+    background: #f1f5f9;
+    min-height: 4px;
+}
+
+.barra-mes {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.barra-turnos {
+    font-size: 10px;
+    color: #94a3b8;
+}
+
+/* Selector de mes dentro del calendario */
+.cal-mes-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 0 8px;
+}
+
+.cal-mes-selector span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    min-width: 160px;
+    text-align: center;
+}
+
+.cal-mes-selector button {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    font-size: 16px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 150ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cal-mes-selector button:hover:not(:disabled) {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    color: #1d4ed8;
+}
+
+.cal-mes-selector button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* ===== CALENDARIO MI ÁREA ===== */
+.area-calendario-wrapper {
+    background: var(--surface-0);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-xs);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.area-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 90px;
+    min-width: 500px;
+}
+
+.area-cal-nombre-dia {
+    padding: 8px 4px;
+    background: var(--gray-50);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.04em;
+    border-right: 1px solid var(--gray-100);
+}
+
+.area-cal-nombre-dia:last-child { border-right: none; }
+
+.area-cal-celda {
+    min-height: 90px;
+    height: 90px;
+    padding: 6px 4px;
+    border-top: 1px solid var(--gray-100);
+    border-right: 1px solid var(--gray-100);
+    background: var(--surface-0);
+    transition: background var(--transition);
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.area-cal-celda:nth-child(7n) { border-right: none; }
+
+.area-cal-celda.otro-mes { background: var(--gray-50); }
+
+.area-num-dia {
+    width: 26px;
+    height: 26px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    border-radius: 50%;
+}
+
+.area-num-dia.hoy { background: var(--blue-600); color: white; font-weight: 700; }
+
+.area-turno-chip {
+    margin-top: 4px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.area-turno-chip strong {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.area-turno-chip span { display: block; font-size: 9px; opacity: 0.9; }
+
+.area-leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 12px;
+    border-top: 1px solid var(--gray-100);
+}
+
+.area-leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.area-leyenda-item span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.area-empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--gray-400);
+    font-size: 14px;
+}
+
+/* Tabla resumen de temporada */
+.temporada-tabla-wrapper {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(15,23,42,0.06);
+}
+
+.temporada-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.temporada-tabla th {
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.temporada-tabla td {
+    padding: 11px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #0f172a;
+}
+
+.temporada-tabla tbody tr:last-child td { border-bottom: none; }
+.temporada-tabla tbody tr:hover td { background: #f8fafc; }
+
+.fila-actual td { background: #eff6ff !important; font-weight: 600; }
+
+.temporada-tabla tfoot td {
+    border-top: 2px solid #e2e8f0;
+    font-weight: 700;
+    color: #0f172a;
+    padding: 10px 14px;
+}
+
+.badge-mes {
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-mes.activo  { background: #dbeafe; color: #1d4ed8; }
+.badge-mes.ok      { background: #dcfce7; color: #15803d; }
+.badge-mes.vacio   { background: #f1f5f9; color: #64748b; }
+.badge-mes.futuro  { background: #fef3c7; color: #d97706; }
+
+/* ===== TURNO CARD ===== */
+.soc-turno-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    background: var(--surface-0);
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-xs);
+}
+
+.soc-turno-horario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 48px;
+}
+
+.soc-turno-horario span { font-size: 15px; font-weight: 700; color: var(--gray-900); }
+
+.soc-turno-linea {
+    width: 2px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--blue-500), var(--green-500));
+    border-radius: 1px;
+}
+
+.soc-turno-datos { display: flex; flex-direction: column; gap: 3px; }
+.soc-turno-datos strong { font-size: 15px; font-weight: 700; color: var(--gray-900); }
+.soc-turno-datos span   { font-size: 13px; color: var(--gray-500); }
+
+@media (min-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 768px) {
+    .area-wrapper { padding: 28px 40px 40px; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .soc-piscinas { padding: 24px 28px; }
+}
+
+@media (max-width: 600px) {
+    .area-cal-celda {
+        min-height: 56px;
+        height: 56px;
+        padding: 4px 2px;
+    }
+    .area-cal-grid { grid-auto-rows: 56px; }
+    .area-turno-chip strong { font-size: 9px; }
+    .area-turno-chip span { display: none; }
+    .area-cal-nombre-dia {
+        font-size: 9px;
+        padding: 6px 2px;
+    }
+    .area-num-dia {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}
+
+/* ===== MI PERFIL ===== */
+
+.perfil-wrapper {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.perfil-foto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.perfil-datos {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.perfil-dato-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.perfil-dato-card span {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.perfil-dato-card strong {
+    font-size: 15px;
+    color: #0f172a;
+}
+
+.soc-perfil-btn-primary {
+    height: 34px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.soc-perfil-btn-primary:hover:not(:disabled) { background: #1d4ed8; }
+.soc-perfil-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.soc-perfil-btn-secondary {
+    height: 34px;
+    padding: 0 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.soc-perfil-btn-secondary:hover { background: #f8fafc; }

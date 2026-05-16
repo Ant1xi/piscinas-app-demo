@@ -1,0 +1,31 @@
+# Backend
+backend/target/
+backend/uploads/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Frontend env
+frontend/.env.development
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+
+# Logs y temporales
+*.log
+backend-log.txt
+
+# Scripts locales
+*.bat
+backend-log.txt
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.iml
+.vscode/
+

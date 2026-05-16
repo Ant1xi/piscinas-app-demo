@@ -1,0 +1,17 @@
+/*
+ * AdminDashboard — índice de módulos CSS
+ * El contenido ha sido dividido en módulos en src/styles/modules/
+ * Orden de imports: base → componentes específicos → responsive al final
+ */
+
+@import "../../styles/modules/layout.css";
+@import "../../styles/modules/header.css";
+@import "../../styles/modules/piscinas.css";
+@import "../../styles/modules/toolbar.css";
+@import "../../styles/modules/urbanizaciones.css";
+@import "../../styles/modules/socorristas.css";
+@import "../../styles/modules/auditoria.css";
+@import "../../styles/modules/kanban.css";
+@import "../../styles/modules/operativa.css";
+@import "../../styles/modules/perfil.css";
+@import "../../styles/modules/responsive.css";

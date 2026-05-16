@@ -1,0 +1,327 @@
+/* ===== LAYOUT BASE ===== */
+
+* { box-sizing: border-box; }
+
+.admin-container {
+    min-height: 100vh;
+    display: flex;
+    background: var(--color-bg);
+    color: var(--gray-900);
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: var(--space-6) var(--space-4);
+    background: var(--color-sidebar);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    margin: 0 0 var(--space-5) var(--space-2);
+    font-size: 20px;
+    font-weight: var(--weight-bold);
+    letter-spacing: -0.3px;
+    color: white;
+}
+
+/* Avatar del usuario */
+.sidebar-avatar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-6) var(--space-1);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--blue-800);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--weight-bold);
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.sidebar-avatar-name {
+    color: rgba(255,255,255,0.75);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.sidebar nav p {
+    margin: 0;
+    padding: 10px var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-sidebar-text);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.sidebar-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.sidebar nav p:hover {
+    background: var(--color-sidebar-hover);
+    color: white;
+}
+
+.sidebar nav p:hover .sidebar-icon { opacity: 1; }
+
+.sidebar nav .active {
+    background: rgba(59,130,246,0.15);
+    color: var(--color-sidebar-active);
+    box-shadow: inset 3px 0 0 var(--accent-500);
+}
+
+.sidebar nav .active .sidebar-icon { opacity: 1; }
+
+/* Separador de secciones */
+.sidebar-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 10px var(--space-1);
+}
+
+.logout {
+    margin-top: var(--space-4);
+    width: 100%;
+    padding: 11px var(--space-3);
+    border: 1px solid rgba(255,255,255,0.12);
+    background: transparent;
+    color: var(--color-sidebar-text);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: var(--weight-medium);
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.logout:hover {
+    background: rgba(239,68,68,0.12);
+    border-color: rgba(239,68,68,0.35);
+    color: #fca5a5;
+}
+
+/* ===== MAIN ===== */
+
+.main {
+    flex: 1;
+    min-width: 0;
+    background: var(--color-bg);
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.section-content {
+    min-height: calc(100vh - 80px);
+}
+
+/* ===== ANIMACIÓN DE ENTRADA ===== */
+
+@keyframes entrada {
+    from { opacity: 0; transform: translateY(10px) scale(0.99); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* ===== HAMBURGUESA MÓVIL ===== */
+/*
+ * REGLA CRÍTICA DE CASCADA: las reglas base (display:none) van ANTES del @media.
+ * Si van después, el display:none en la misma especificidad gana al display:flex
+ * del media query porque aparece más tarde en el archivo.
+ */
+
+/* ── Base: todos ocultos en escritorio ── */
+
+.sidebar-mobile-bar { display: none; }
+
+.sidebar-mobile-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 250;
+}
+
+.sidebar-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 284px;
+    background: var(--color-sidebar);
+    z-index: 300;
+    flex-direction: column;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    overflow-y: auto;
+}
+
+.sidebar-mobile-menu--open { transform: translateX(0); }
+
+.sidebar-mobile-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-5) var(--space-4);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-mobile-head-name {
+    color: rgba(255,255,255,0.75);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    padding: var(--space-3) var(--space-3) 0;
+}
+
+.sidebar-mobile-item {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0 var(--space-3);
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-sidebar-text);
+    font-size: 15px;
+    font-weight: var(--weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+}
+
+.sidebar-mobile-item:hover {
+    background: var(--color-sidebar-hover);
+    color: white;
+}
+
+.sidebar-mobile-item.active {
+    background: rgba(0, 122, 255, 0.15);
+    color: var(--accent-500);
+}
+
+.sidebar-mobile-item.active .sidebar-icon { opacity: 1; }
+.sidebar-mobile-item:hover .sidebar-icon { opacity: 1; }
+
+.sidebar-mobile-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin: var(--space-4) var(--space-3) var(--space-6);
+    padding: 13px var(--space-3);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-sidebar-text);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: var(--weight-medium);
+    transition: all var(--transition-fast);
+}
+
+.sidebar-mobile-logout:hover {
+    background: rgba(239,68,68,0.12);
+    border-color: rgba(239,68,68,0.35);
+    color: #fca5a5;
+}
+
+/* ── Mobile (≤768px): activar barra, hamburguesa, backdrop y menú ──
+   Este bloque va AL FINAL para que sus display:flex/block ganen a
+   los display:none de las reglas base de arriba.                    */
+
+@media (max-width: 768px) {
+    .sidebar-mobile-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        padding: 0 var(--space-4);
+        background: var(--color-sidebar);
+        z-index: 200;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.28);
+    }
+    .sidebar-mobile-logo {
+        color: white;
+        font-size: 17px;
+        font-weight: var(--weight-bold);
+        letter-spacing: -0.2px;
+    }
+    /* padding:0 sobreescribe el padding:10px 20px del reset global de button */
+    .sidebar-hamburguesa {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-md);
+        transition: background var(--transition-fast);
+    }
+    .sidebar-hamburguesa:hover { background: rgba(255,255,255,0.08); }
+    .sidebar-mobile-backdrop--visible { display: block; }
+    .sidebar-mobile-menu { display: flex; }
+}

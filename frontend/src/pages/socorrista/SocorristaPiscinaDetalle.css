@@ -1,0 +1,114 @@
+@import "../admin/AdminPiscinaDetalle.css";
+
+/* ===== TURNO HOY ===== */
+
+.soc-turno-vacio {
+    text-align: center;
+    padding: 32px 20px;
+    color: #64748b;
+}
+
+.soc-turno-vacio-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.soc-turno-vacio h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #475569;
+    margin: 0 0 4px;
+}
+
+.soc-turno-vacio p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.soc-turno-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 16px;
+    border-radius: 14px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.06);
+    margin-bottom: 8px;
+}
+
+.soc-turno-horario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 48px;
+}
+
+.soc-turno-horario span {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.soc-turno-linea {
+    width: 2px;
+    height: 26px;
+    background: linear-gradient(to bottom, #3b82f6, #10b981);
+    border-radius: 1px;
+}
+
+.soc-turno-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.soc-turno-datos strong {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.soc-turno-datos span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.soc-turno-estado {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+}
+
+.soc-empty {
+    padding: 24px 16px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ===== TURNO TAB SECTIONS ===== */
+
+.soc-turno-seccion {
+    margin-bottom: 28px;
+}
+
+.soc-turno-seccion h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px;
+}
+
+.soc-turno-seccion > p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 14px;
+    text-transform: capitalize;
+}

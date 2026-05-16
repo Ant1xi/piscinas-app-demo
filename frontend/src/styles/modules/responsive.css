@@ -1,0 +1,94 @@
+/*
+ * ===== RESPONSIVE — AdminDashboard =====
+ * Todas las media queries del dashboard unificadas aquí.
+ * Breakpoints: Móvil ≤ 640px | Tablet 641–1024px | Desktop ≥ 1025px
+ *
+ * Importar SIEMPRE al final del índice para que las overrides funcionen.
+ */
+
+/* ─── Tablet / pantalla media ─── */
+
+@media (max-width: 1000px) {
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .actions { width: 100%; flex-wrap: wrap; }
+    .actions input { width: 100%; }
+    .sidebar { width: 220px; }
+}
+
+/* ─── Perfil: una sola columna bajo 900px ─── */
+
+@media (max-width: 900px) {
+    .perfil-layout { grid-template-columns: 1fr; padding: var(--space-5) var(--space-4); }
+    .socorristas-section .section-toolbar { grid-template-columns: 1fr; }
+    .socorristas-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Móvil ─── */
+
+@media (max-width: 768px) {
+    /* Layout — sidebar sustituida por hamburguesa fija */
+    .admin-container { flex-direction: column; height: auto; padding-top: 56px; }
+    .sidebar { display: none; }
+    .main { height: auto; min-height: 0; overflow-y: auto; }
+
+    /* Header */
+    .header { padding: 14px 18px; min-height: auto; }
+
+    /* Piscinas */
+    .grid { padding: var(--space-4); grid-template-columns: 1fr; }
+
+    /* Auditoría */
+    .auditoria-section { padding: var(--space-4); }
+    .auditoria-filters { flex-direction: column; align-items: stretch; }
+    .auditoria-input,
+    .auditoria-select { width: 100%; }
+    .auditoria-btn-export { margin-left: 0; width: 100%; }
+    .auditoria-dates { flex-wrap: wrap; }
+    .auditoria-pagination { flex-direction: column; gap: var(--space-3); }
+
+    /* Gestión urbanizaciones */
+    .gestion-lista { padding: var(--space-4); }
+    .gestion-header { padding: 14px var(--space-4); flex-wrap: wrap; }
+    .gestion-breadcrumb { padding: var(--space-2) var(--space-4); }
+    .gestion-item { flex-direction: column; align-items: flex-start; }
+    .gestion-item-actions { width: 100%; justify-content: flex-end; }
+    .gestion-form-grid { grid-template-columns: 1fr; }
+    .gestion-asignar-row { flex-direction: column; align-items: flex-start; }
+
+    /* Vecinos: grid dos columnas → nombre completo visible */
+    .gestion-vecino-item {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        column-gap: var(--space-3);
+        row-gap: var(--space-2);
+        align-items: center;
+    }
+    .gestion-vecino-info { grid-column: 2; grid-row: 1; }
+    .gestion-vecino-nombre { white-space: normal; word-break: break-word; overflow: visible; text-overflow: clip; }
+    .gestion-vecino-badges { grid-column: 1; grid-row: 2; }
+    .gestion-btn-delete { grid-column: 2; grid-row: 2; justify-self: end; }
+
+    /* Operativa */
+    .explora-persona-row { gap: var(--space-2); }
+    .gestion-masiva-row label { min-width: unset; }
+}
+
+/* ─── Móvil estrecho: socorristas card ─── */
+
+@media (max-width: 640px) {
+    .socorrista-global-card { flex-wrap: wrap; }
+    .socorrista-content { min-width: 0; }
+    .socorrista-content p,
+    .socorrista-content span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .socorrista-actions {
+        min-width: unset;
+        width: 100%;
+        margin-left: 0;
+        flex-direction: row;
+        margin-top: var(--space-2);
+    }
+    .socorrista-actions button { flex: 1; }
+}

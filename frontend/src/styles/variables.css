@@ -1,0 +1,189 @@
+/* ================================================================
+   PISCINAS APP — SISTEMA DE DISEÑO (Apple-inspired)
+   sidebar oscura · contenido claro · sombras sutiles · tipo system
+   ================================================================ */
+
+/* ===== ESCALA DE GRISES (cool slate, estilo Apple) ===== */
+:root {
+  --gray-50:  #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-150: #e8edf3;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  --gray-950: #020617;
+
+  /* ===== ACENTO (iOS Blue #007AFF) ===== */
+  --accent-50:  #eff6ff;
+  --accent-100: #dbeafe;
+  --accent-500: #007AFF;
+  --accent-600: #0069d9;
+  --accent-700: #0055b3;
+
+  /* ===== SEMÁNTICOS ===== */
+  --success:      #22c55e;
+  --success-bg:   #f0fdf4;
+  --success-text: #166534;
+
+  --warning:      #f59e0b;
+  --warning-bg:   #fffbeb;
+  --warning-text: #92400e;
+
+  --danger:       #ef4444;
+  --danger-bg:    #fef2f2;
+  --danger-text:  #991b1b;
+
+  --info:         var(--accent-500);
+  --info-bg:      var(--accent-50);
+  --info-text:    var(--accent-700);
+
+  /* ===== SUPERFICIES ===== */
+  --surface-base:    #eef2f7;
+  --surface-raised:  #ffffff;
+  --surface-overlay: #ffffff;
+
+  /* ===== ESPACIADO (sistema 4px) ===== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ===== TIPOGRAFÍA ===== */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Segoe UI', Roboto, sans-serif;
+
+  --text-xs:   12px;
+  --text-sm:   13px;
+  --text-base: 15px;
+  --text-md:   16px;
+  --text-lg:   18px;
+  --text-xl:   22px;
+  --text-2xl:  28px;
+  --text-3xl:  34px;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --leading-tight:   1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.02em;
+
+  /* ===== SOMBRAS (sutiles, estilo Apple — opacidades bajas, blur amplio) ===== */
+  --shadow-xs:    0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm:    0 2px 8px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md:    0 4px 14px rgba(15, 23, 42, 0.07), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg:    0 8px 24px rgba(15, 23, 42, 0.08), 0 4px 8px rgba(15, 23, 42, 0.05);
+  --shadow-xl:    0 16px 48px rgba(15, 23, 42, 0.10), 0 8px 12px rgba(15, 23, 42, 0.06);
+  --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.12), 0 8px 16px rgba(15, 23, 42, 0.08);
+
+  /* ===== RADIOS ===== */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   18px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* ===== TRANSICIONES ===== */
+  --transition-fast: 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-base: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* ===== LAYOUT ===== */
+  --sidebar-width: 256px;
+  --header-height: 72px;
+}
+
+/*
+ * BREAKPOINTS (referencia — no usar en var() dentro de @media)
+ *   Mobile:   ≤ 640px
+ *   Tablet:   641px – 1024px
+ *   Desktop:  ≥ 1025px
+ */
+
+/* ===== ALIASES LEGACY (mantiene compatibilidad con CSS de pantallas) ===== */
+:root {
+  /* Azul — ahora apunta al acento Apple */
+  --blue-50:  var(--accent-50);
+  --blue-100: var(--accent-100);
+  --blue-400: #38bdf8;
+  --blue-500: var(--accent-500);
+  --blue-600: var(--accent-600);
+  --blue-700: var(--accent-700);
+  --blue-800: #1e40af;
+
+  /* Semánticos con nombre de color */
+  --green-500:  var(--success);
+  --green-100:  var(--success-bg);
+  --amber-500:  var(--warning);
+  --amber-100:  var(--warning-bg);
+  --red-500:    var(--danger);
+  --red-100:    var(--danger-bg);
+  --purple-500: #8b5cf6;
+  --purple-100: #ede9fe;
+
+  /* Superficies legacy */
+  --surface-0: var(--surface-raised);
+  --surface-1: var(--gray-50);
+  --surface-2: var(--gray-100);
+
+  /* Fondos y bordes */
+  --color-bg:     var(--surface-base);
+  --color-card:   var(--surface-raised);
+  --color-border: var(--gray-200);
+
+  /* Sidebar */
+  --color-sidebar:        #0f172a;
+  --color-sidebar-hover:  rgba(255, 255, 255, 0.06);
+  --color-sidebar-text:   #94a3b8;
+  --color-sidebar-active: #60a5fa;
+
+  /* Primario */
+  --color-primary:        var(--accent-500);
+  --color-primary-dark:   var(--accent-700);
+  --color-primary-light:  var(--accent-50);
+  --color-primary-border: var(--accent-100);
+
+  /* Éxito */
+  --color-success:        var(--success);
+  --color-success-dark:   #16a34a;
+  --color-success-light:  var(--success-bg);
+  --color-success-border: #bbf7d0;
+
+  /* Aviso */
+  --color-warning:        var(--warning);
+  --color-warning-dark:   #d97706;
+  --color-warning-light:  var(--warning-bg);
+  --color-warning-border: #fde68a;
+
+  /* Peligro */
+  --color-danger:         var(--danger);
+  --color-danger-dark:    #dc2626;
+  --color-danger-light:   var(--danger-bg);
+  --color-danger-border:  #fecaca;
+
+  /* Texto */
+  --color-text:       var(--gray-900);
+  --color-text-muted: var(--gray-500);
+  --color-text-light: var(--gray-400);
+
+  /* Transición legacy */
+  --transition: var(--transition-base);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(0, 122, 255, 0.18);
+}
